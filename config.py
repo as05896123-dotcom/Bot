@@ -1,3 +1,3 @@
 # توكن البوت وأي إعدادات أساسية
-TOKEN = "8598379083:AAH1PeJrEVNNIospg9GNuoAXgp8Ww_BfC60"
+TOKEN = "8547215179:AAE6GvbzecXk94YhjoaQvUhwgeRrstiJm0E"
 ADMINS = [8313557781]  # معرفات الأدمن
