@@ -55,3 +55,25 @@ app.add_handler(CommandHandler("security", security))
 app.add_handler(CommandHandler("قفل", قفل))
 app.add_handler(CommandHandler("فتح", فتح))
 app.add_handler(MessageHandler(filters.ALL, راقب))
+from telegram.ext import CommandHandler
+from commands.group_settings import *
+
+handlers = [
+    ("اعدادات_المجموعة", اعدادات_المجموعة),
+    ("تعيين_ترحيب", تعيين_ترحيب),
+    ("مسح_الترحيب", مسح_الترحيب),
+    ("تعيين_الرابط", تعيين_الرابط),
+    ("مسح_الرابط", مسح_الرابط),
+    ("تعيين_قوانين", تعيين_قوانين),
+    ("مسح_القوانين", مسح_القوانين),
+    ("تغيير_اسم_المجموعة", تغيير_اسم_المجموعة),
+    ("تغيير_الوصف", تغيير_الوصف),
+    ("الغاء_التثبيت", الغاء_التثبيت),
+    ("فحص_البوت", فحص_البوت),
+    ("تنظيف_الميديا", تنظيف_الميديا),
+    ("تنظيف_التعديل", تنظيف_التعديل),
+    ("صورتي", صورتي)
+]
+
+for cmd, func in handlers:
+    app.add_handler(CommandHandler(cmd, func))
