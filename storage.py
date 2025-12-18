@@ -23,6 +23,12 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS custom_replies (
     response TEXT
 )''')
 
+# جدول الاوامر المضافة
+cursor.execute('''CREATE TABLE IF NOT EXISTS added_commands (
+    command TEXT PRIMARY KEY,
+    response TEXT
+)''')
+
 conn.commit()
 
 # دوال مساعدة
@@ -73,4 +79,17 @@ def get_reply(trigger):
 
 def delete_reply(trigger):
     cursor.execute('DELETE FROM custom_replies WHERE trigger = ?', (trigger,))
+    conn.commit()
+
+def add_command(command, response):
+    cursor.execute('INSERT OR REPLACE INTO added_commands(command,response) VALUES(?,?)', (command,response))
+    conn.commit()
+
+def get_command(command):
+    cursor.execute('SELECT response FROM added_commands WHERE command = ?', (command,))
+    row = cursor.fetchone()
+    return row[0] if row else None
+
+def delete_command(command):
+    cursor.execute('DELETE FROM added_commands WHERE command = ?', (command,))
     conn.commit()
