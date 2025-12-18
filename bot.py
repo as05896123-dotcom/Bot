@@ -35,3 +35,23 @@ def تشغيل_البوت():
 
 if __name__ == "__main__":
     تشغيل_البوت()
+from commands.group_settings import *
+
+app.add_handler(CommandHandler("اعدادات_المجموعة", اعدادات_المجموعة_cmd))
+app.add_handler(CommandHandler("تعيين_ترحيب", تعيين_ترحيب))
+app.add_handler(CommandHandler("مسح_الترحيب", مسح_الترحيب))
+app.add_handler(CommandHandler("تعيين_الرابط", تعيين_الرابط))
+app.add_handler(CommandHandler("مسح_الرابط", مسح_الرابط))
+app.add_handler(CommandHandler("تعيين_قوانين", تعيين_قوانين))
+app.add_handler(CommandHandler("مسح_القوانين", مسح_القوانين))
+app.add_handler(CommandHandler("تغيير_اسم_المجموعة", تغيير_اسم_المجموعة))
+app.add_handler(CommandHandler("تغيير_الوصف", تغيير_الوصف))
+app.add_handler(CommandHandler("فحص_البوت", فحص_البوت))
+app.add_handler(CommandHandler("صورتي", صورتي))
+from commands.security import security, قفل, فتح, راقب
+from telegram.ext import CommandHandler, MessageHandler, filters
+
+app.add_handler(CommandHandler("security", security))
+app.add_handler(CommandHandler("قفل", قفل))
+app.add_handler(CommandHandler("فتح", فتح))
+app.add_handler(MessageHandler(filters.ALL, راقب))
