@@ -77,3 +77,19 @@ handlers = [
 
 for cmd, func in handlers:
     app.add_handler(CommandHandler(cmd, func))
+from telegram.ext import CommandHandler
+from commands.activation import *
+
+cmds = {
+    "اوامر_التفعيل": اوامر_التفعيل,
+    "تفعيل": تفعيل,
+    "تعطيل": تعطيل,
+    "حالة": حالة,
+    "الحالات": الحالات,
+    "تفعيل_الكل": تفعيل_الكل,
+    "تعطيل_الكل": تعطيل_الكل,
+    "اعادة_الضبط": اعادة_الضبط
+}
+
+for c, f in cmds.items():
+    app.add_handler(CommandHandler(c, f))
